@@ -4,7 +4,8 @@ class BaseControlador{
 
     static rotas(){
         return {
-           home: '/'
+           home: '/',
+           login: '/login'
         };
     }
 
@@ -13,6 +14,18 @@ class BaseControlador{
             resp.marko(
                 require(templates.base.home)
             );
+        }
+    }
+
+    login(){
+        return  (req,res) =>{
+            res.marko(template.base.login)
+        }; 
+    }
+
+    efetuaLogin(){
+        return (req, res){
+            // lógica
         }
     }
 }
