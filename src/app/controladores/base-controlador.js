@@ -31,8 +31,8 @@ class BaseControlador{
 
             const passport = req.passport;
             passport.authenticate('local', (erro, usuario, info) =>{
-                if (erro){
-                    return resp.marko(templates.base.login);
+                if(info){
+                    return res.marko(templates.base.login);
                 }
                 if (erro){
                     return next(erro);

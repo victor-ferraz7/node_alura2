@@ -6,7 +6,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const UsuarioDao = require('../app/infra/usuario-dao');
 const db = require('./database');
 
-module.exports = (app) =>{
+module.exports = (app) => {
 
     passport.use(new LocalStrategy(
         {
@@ -49,4 +49,9 @@ module.exports = (app) =>{
 
     app.use(passport.initialize());
     app.use(passport.session());
+
+    app.use((req, res, next) =>{
+        req.passport = passport;
+        next();
+    })
 }; 
