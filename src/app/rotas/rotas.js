@@ -42,8 +42,8 @@ module.exports = (app) => {
     });
 
     app.post('/livros', [
-        check('titulo').isLength({ min: 4 }),
-        check('preco').isCurrency()
+        check('titulo').isLength({ min: 4 }).withMessage('O títiulo precisa ter no mínimo 5 caracteres'),
+        check('preco').isCurrency().withMessage('O preço precisa ter um valor monetário válido')
     ],function(req, resp) {
         console.log(req.body);
         const livroDao = new LivroDao(db);
@@ -51,7 +51,10 @@ module.exports = (app) => {
         const erros = validationResult(req);
 
         if(!erros.isEmpty()){
-            return resp.marko(require('../views/livros/form/form.marko'), { livro:{} });
+            return resp.marko(require('../views/livros/form/form.marko'),
+             { livro: {},
+                errosValidacao: erros.array()
+            });
         }
 
         livroDao.adiciona(req.body)
