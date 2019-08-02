@@ -3,8 +3,6 @@ const livroControlador = new LivroControlador();
 
 const Livro = require('../modelos/livro');
 
-const { check } = require('express-validator/check');
-
 module.exports = (app) => {
    
     const rotasLivro = LivroControlador.rotas();

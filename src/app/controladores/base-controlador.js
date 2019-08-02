@@ -24,7 +24,7 @@ class BaseControlador{
     }
 
     efetuaLogin(){
-        return (req, res){
+        return (req, res) =>{
             // lógica
         }
     }

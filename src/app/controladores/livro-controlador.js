@@ -13,7 +13,7 @@ class LivroControlador {
             cadastro: '/livros/form',
             edicao: '/livros/form/:id',
             delecao: '/livros/:id'
-        }
+        };
     }
 
     lista(){
