@@ -14,14 +14,16 @@ class BaseControlador{
     home(){
         return (req, resp) =>{
             resp.marko(
-                require(templates.base.home)
+               templates.base.home
             );
-        }
+        };
     }
 
     login(){
-        return  (req,res) =>{
-            res.marko(template.base.login)
+        return (req,res) =>{
+            res.marko(
+                templates.base.login
+            );
         }; 
     }
 

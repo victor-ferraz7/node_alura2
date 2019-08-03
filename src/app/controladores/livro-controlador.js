@@ -9,6 +9,7 @@ class LivroControlador {
 
     static rotas(){
         return {
+            autenticadas: '/livros*',
             lista: '/livros',
             cadastro: '/livros/form',
             edicao: '/livros/form/:id',
@@ -21,7 +22,8 @@ class LivroControlador {
 
             const livroDao = new LivroDao(db);
             livroDao.lista()
-                .then(livros => resp.marko(templates.livros.lista,                                       
+                .then(livros => resp.marko(
+                        templates.livros.lista,                                       
                         {
                             livros: livros
                         }
