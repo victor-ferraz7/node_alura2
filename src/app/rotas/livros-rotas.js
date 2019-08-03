@@ -9,7 +9,7 @@ module.exports = (app) => {
     const rotasLivro = LivroControlador.rotas();
     
     app.use(rotasLivro.autenticadas, (req,res,next)=>{
-        if(req.isAutenticated()) {
+        if(req.isAuthenticated()) {
             next();
         }else{
             res.redirect(BaseControlador.rotas().login);
